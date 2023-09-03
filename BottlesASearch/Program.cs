@@ -7,7 +7,9 @@ PriorityQueue<BottleSet, int> setQueue = new(items: new [] { (Element: startSet,
 
 List<BottleSet> winSets = [];
 
-while (setQueue.TryDequeue(out BottleSet? set, out int _))
+int count = 0;
+
+while (setQueue.TryDequeue(out BottleSet? set, out int _) && count++ < 100)
 {
     Console.WriteLine($"Checking set: {set.Image}...");
     if (set.IsGoal)
