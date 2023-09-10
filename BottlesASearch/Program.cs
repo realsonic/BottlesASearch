@@ -5,13 +5,13 @@
         Bottle6: new Bottle(Capacity: 6, Amount: 6))
 };
 
-PriorityQueue<Step, byte> setQueue = new(items: new [] { (Element: startStep, Priority: startStep.GoalDistance) } );
+PriorityQueue<Step, byte> stepQueue = new(items: new [] { (Element: startStep, Priority: startStep.GoalDistance) } );
 
 List<Step> winSteps = [];
 
 long count = 0;
 
-while (setQueue.TryDequeue(out Step? step, out byte _))
+while (stepQueue.TryDequeue(out Step? step, out byte _))
 {
     count++;
 
@@ -23,7 +23,7 @@ while (setQueue.TryDequeue(out Step? step, out byte _))
     }
 
     IEnumerable<Step> nextSteps = step.GetNextSteps();
-    setQueue.EnqueueRange(nextSteps.Select(step => (Element: step, Priority: step.GoalDistance)));
+    stepQueue.EnqueueRange(nextSteps.Select(step => (Element: step, Priority: step.GoalDistance)));
 }
 Console.WriteLine($"Total iterations: {count}.");
 
