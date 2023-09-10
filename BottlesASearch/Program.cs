@@ -65,19 +65,19 @@ record BottleSet(Bottle Bottle10, Bottle Bottle5, Bottle Bottle6)
         Bottle newBottle10, newBottle5, newBottle6;
 
         (newBottle10, newBottle5) = Bottle10.Pour(Bottle5);
-        yield return (this with { }) with { Bottle10 = newBottle10, Bottle5 = newBottle5 };
+        yield return this with { Bottle10 = newBottle10, Bottle5 = newBottle5 };
         (newBottle10, newBottle6) = Bottle10.Pour(Bottle6);
-        yield return (this with { }) with { Bottle10 = newBottle10, Bottle6 = newBottle6 };
+        yield return this with { Bottle10 = newBottle10, Bottle6 = newBottle6 };
 
         (newBottle5, newBottle10) = Bottle5.Pour(Bottle10);
-        yield return (this with { }) with { Bottle10 = newBottle10, Bottle5 = newBottle5 };
+        yield return this with { Bottle10 = newBottle10, Bottle5 = newBottle5 };
         (newBottle5, newBottle6) = Bottle5.Pour(Bottle6);
-        yield return (this with { }) with { Bottle5 = newBottle5, Bottle6 = newBottle6 };
+        yield return this with { Bottle5 = newBottle5, Bottle6 = newBottle6 };
 
         (newBottle6, newBottle10) = Bottle6.Pour(Bottle10);
-        yield return (this with { }) with { Bottle10 = newBottle10, Bottle6 = newBottle6 };
+        yield return this with { Bottle10 = newBottle10, Bottle6 = newBottle6 };
         (newBottle6, newBottle5) = Bottle6.Pour(Bottle5);
-        yield return (this with { }) with { Bottle5 = newBottle5, Bottle6 = newBottle6 };
+        yield return this with { Bottle5 = newBottle5, Bottle6 = newBottle6 };
     }
 }
 
